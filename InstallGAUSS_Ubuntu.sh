@@ -21,6 +21,6 @@ mkdir build
 cd build
 
 echo "Compile GAUSS"
-cmake .. -DCMAKE_PREFIX_PATH=/opt/Qt5.9.0/5.9/gcc_64/lib/cmake -DEigen3_DIR=/usr/include/eigen3 -DCMAKE_BUILD_TYPE=Release
+cmake .. -DCMAKE_PREFIX_PATH=/opt/Qt5.9.0/5.9/gcc_64/lib/cmake -DEigen3_DIR=/usr/include/eigen3 -DCMAKE_BUILD_TYPE=Release -DUSE_GUROBI=ON -DGUROBI_DIR=/home/gaoraym1/gurobi800/linux64 -DGUROBI_LIBRARY=libgurobi80.so -DGUROBI_CXX_LIBRARY=libgurobi_c++.a
 make -j 2 all 
                                                         

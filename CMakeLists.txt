@@ -6,6 +6,8 @@ project (Gauss)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} ${PROJECT_SOURCE_DIR}/ThirdParty/libigl/external/eigen CACHE PATH "Root include directory for Eigen3" FORCE) 
 
+# need his since i install boost in non-typical area
+set(Boost_DEBUG 1)
 #this code uses OpenMP which is supported almost everywhere except for OS X clang
 #to get around this you can choose to install clang via homebrew to get access to OpenMP
 
@@ -45,6 +47,7 @@ set(GAUSS_INCLUDE_DIR  CACHE INTERNAL "")
 set(GAUSS_LINK_DIR  CACHE INTERNAL "")
 set(GAUSS_LIBS  CACHE INTERNAL "")
 set(GAUSS_BINARY_DIR ${PROJECT_BINARY_DIR} CACHE INTERNAL "")
+set(EIGEN_GUROBI_FLAGS CACHE STRING "-fext-numeric-literals")
 
 if(APPLE)
     if(USE_OPENMP)
@@ -65,7 +68,7 @@ else()
 		add_definitions(-DWIN32)
     ELSE()
         set (CMAKE_C_FLAGS ${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS})
-        set (CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS})
+        set (CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS} ${EIGEN_GUROBI_FLAGS})
         set (CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS})
     ENDIF()
     add_definitions(-DGAUSS_OPENMP)
