@@ -51,6 +51,18 @@ namespace Gauss {
                 return m_impl.getNumCollisions();
             }
             
+            inline auto getSharedInfo() {
+                return m_impl.getSharedInfo();
+            }
+
+            inline auto getCollisionsObjectA() {
+                return m_impl.getCollisionsObjectA();
+            }
+
+            inline auto getCollisionsObjectB() {
+                return m_impl.getCollsionsObjectB();
+            }
+
             template <typename Vector>
             inline void getDbDt(Vector &f,  const State<DataType> &state, const ConstraintIndex &index) {
                

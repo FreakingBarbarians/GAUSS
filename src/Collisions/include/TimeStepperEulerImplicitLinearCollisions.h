@@ -199,6 +199,8 @@ namespace Gauss {
             qp.problem(qDot.rows(), Aeq.rows(), Aineq.rows());
             qp.solve(systemMatrix, (*forceVector).sparseView(), Aeq, beq.sparseView(), Aineq, b.sparseView(), lx.sparseView(), ux.sparseView());
             
+            m_lagrangeMultipliers = qp.getLagrangeMultipliers();
+
             qDot = qp.result();
 #endif
         }

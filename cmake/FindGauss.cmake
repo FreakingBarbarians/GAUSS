@@ -33,7 +33,7 @@ else (Gauss_ROOT_DIR)
       PATHS
       ${CMAKE_INSTALL_PREFIX}/include
       ${KDE4_INCLUDE_DIR}
-      PATH_SUFFIXES Gauss gauss
+      PATH_SUFFIXES Gauss gauss GAUSS
     )
 
   if(Gauss_ROOT_DIR)
@@ -66,6 +66,11 @@ set(Gauss_INCLUDE_DIRS  ${Gauss_EXT_INCLUDE_DIRS}
                         ${Embedding_SOURCE_DIR}/include
                         ${Collisions_SOURCE_DIR}/include
                         ${UI_SOURCE_DIR}/include
+                        ${Gauss_ROOT_DIR/}/include
+                        /home/gaoraym1/GAUSS/build/ThirdParty/fcl/include
+                        /home/gaoraym1/GAUSS/ThirdParty/fcl/include
+                        /home/gaoraym1/GAUSS/ThirdParty/libccd/src
+                        /home/gaoraym1/GAUSS/build/ThirdParty/libccd/src
                         )
 if(APPLE)
   if(USE_OPENMP)
@@ -113,6 +118,8 @@ set(Gauss_LIBS  libBase.a
                 libFEM.a
                 libUI.a
                 libCollisions.a
+                libfcl.a
+                libccd.a
                 ${Gauss_EXT_LIBS})
 
 message(WARNING "INCLUDES: " ${Gauss_INCLUDE_DIRS})
